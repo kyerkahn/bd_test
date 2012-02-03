@@ -26,7 +26,7 @@ class TestCommand extends CConsoleCommand {
     echo __FUNCTION__ . ": " . round($elapsed_time, 4) . " secs\n";
   }
 
-  public function actionGetData1() {
+  public function actionTest1() {
     $start_time = microtime(true);
     echo "=============================\n";
 
@@ -43,7 +43,7 @@ class TestCommand extends CConsoleCommand {
     echo __FUNCTION__ . ": " . round($elapsed_time, 4) . " secs\n";
   }
 
-  public function actionGetData2() {
+  public function actionTest2() {
     $start_time = microtime(true);
     echo "=============================\n";
 
@@ -54,6 +54,25 @@ class TestCommand extends CConsoleCommand {
 
     echo "=============================\n";
     echo "Count: " . count($contractor) . "\n";
+
+    $end_time = microtime(true);
+    $elapsed_time = $end_time-$start_time;
+    echo __FUNCTION__ . ": " . round($elapsed_time, 4) . " secs\n";
+  }
+
+  public function actionTest3() {
+    $start_time = microtime(true);
+    echo "=============================\n";
+
+    $period = floor(self::N/10);
+    for ($i=0; $i<self::N; $i++) {
+      $c = self::B().self::a().self::a();
+      $contractor = Contractor::model()->find('name like "' . $c . '%"');
+      if ($i % $period == 0)
+        echo $c . ": " . ((isset($contractor))?$contractor->name:'') . "\n";
+    }
+
+    echo "=============================\n";
 
     $end_time = microtime(true);
     $elapsed_time = $end_time-$start_time;

@@ -3,3 +3,4 @@ protected/runtime/
 protected/data/
 protected/config/db_mysql.php
 *.swp
+*.bak
