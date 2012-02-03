@@ -1,18 +1,19 @@
 <?php
 
 /**
- * This is the model class for table "{{order}}".
+ * This is the model class for table "{{contractor}}".
  *
- * The followings are the available columns in table '{{order}}':
+ * The followings are the available columns in table '{{contractor}}':
  * @property integer $id
  * @property string $name
+ * @property string $surname
  */
-class Order extends CActiveRecord
+class Contractor extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Order the static model class
+	 * @return Contractor the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -24,7 +25,7 @@ class Order extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{order}}';
+		return '{{contractor}}';
 	}
 
 	/**
@@ -36,10 +37,10 @@ class Order extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name', 'required'),
-			array('name', 'length', 'max'=>255),
+			array('name, surname', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name', 'safe', 'on'=>'search'),
+			array('id, name, surname', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,7 +52,7 @@ class Order extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-      'contractor' => array(self::BELONGS_TO, 'Contractor', 'contractor_id'),
+      'orders' => array(self::HAS_MANY, 'Order', 'contractor_id'),
 		);
 	}
 
@@ -63,6 +64,7 @@ class Order extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'name' => 'Name',
+			'surname' => 'Surname',
 		);
 	}
 
@@ -79,6 +81,7 @@ class Order extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
+		$criteria->compare('surname',$this->surname,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
