@@ -1,6 +1,6 @@
 format 74
 "rti"
-  revision 1
+  revision 2
   modified_by 100 "arslan"
 
 
@@ -36,4 +36,242 @@ format 74
 
   mark_for_import
   
+  classview 128228 "Main"
+    //class diagram settings
+    draw_all_relations default hide_attributes no hide_operations no hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language php show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    default_attribute_visibility public
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    classdiagram 128100 "Class Diagram"
+      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 128100 "filial"
+      visibility public 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${visibility}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      ncouples 1
+      key "" value ""
+      attribute 128100 "name"
+	public explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 129892 // <composition>
+	relation 128996 *---
+	  a role_name "" multiplicity "1" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 129892 // <composition>
+	  b role_name "" multiplicity "*" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 130020 // <composition>
+      end
+    end
+
+    class 128228 "eployee"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${visibility}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 128228 "name"
+	public explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 128356 "role"
+	public type class_ref 128356 // role
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 128100 // <association>
+	relation 128100 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 128100 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 128228 // <association>
+      end
+
+      classrelation 128228 // <association>
+	relation_ref 128100 // <association>
+      end
+
+      classrelation 128356 // <association>
+	relation 128228 ----
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 128356 // <association>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 128484 // <association>
+      end
+
+      classrelation 128612 // <composition>
+	relation 128356 *---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 128612 // <composition>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 128740 // <composition>
+      end
+
+      classrelation 128868 // <composition>
+	relation 128484 *---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 128868 // <composition>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 128996 // <composition>
+      end
+
+      classrelation 129124 // <aggregation>
+	relation 128612 o---
+	  a role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 129124 // <aggregation>
+	  b role_name "" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 129252 // <aggregation>
+      end
+
+      classrelation 129508 // <composition>
+	relation_ref 128740 // <composition>
+      end
+
+      classrelation 130020 // <composition>
+	relation_ref 128996 // <composition>
+      end
+    end
+
+    class 128356 "role"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${visibility}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 128484 "name"
+	public explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 128612 "parent"
+	public type class_ref 128356 // role
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 128484 // <association>
+	relation_ref 128228 // <association>
+      end
+
+      classrelation 128740 // <composition>
+	relation_ref 128356 // <composition>
+      end
+
+      classrelation 128996 // <composition>
+	relation_ref 128484 // <composition>
+      end
+
+      classrelation 129252 // <aggregation>
+	relation_ref 128612 // <aggregation>
+      end
+
+      classrelation 129380 // <composition>
+	relation 128740 *---
+	  a role_name "" multiplicity "1" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 129380 // <composition>
+	  b role_name "" multiplicity "1..*" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 129508 // <composition>
+      end
+
+      classrelation 129636 // <composition>
+	relation 128868 *---
+	  a role_name "" multiplicity "*" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 129636 // <composition>
+	  b role_name "" multiplicity "1" private
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 129764 // <composition>
+      end
+
+      classrelation 129764 // <composition>
+	relation_ref 128868 // <composition>
+      end
+    end
+  end
 end

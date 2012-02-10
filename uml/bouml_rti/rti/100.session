@@ -1,0 +1,13 @@
+window_sizes 1920 1056 397 1517 862 120
+diagrams
+  active  classdiagram_ref 128100 // Class Diagram
+    1517 862 100 4 0 0
+end
+show_stereotypes
+selected classview_ref 128228 // Main
+open
+  class_ref 128100 // filial
+  class_ref 128228 // eployee
+  class_ref 128356 // role
+end
+end
