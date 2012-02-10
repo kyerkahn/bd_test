@@ -2,12 +2,15 @@
 
 class TestCommand extends CConsoleCommand {
 
-  const N = 50000;
+  const N = 1000;
   
   public function actionAddData() {
     $start_time = microtime(true);
 
+    $period = floor(self::N/100);
     for ($i=0; $i<self::N; $i++) {
+      if ($i%$period==0)
+        echo "Contractor $i\n";
       $contractor = new Contractor; 
       $contractor->name = self::w();
       $contractor->surname = self::w();
@@ -15,6 +18,8 @@ class TestCommand extends CConsoleCommand {
     }
 
     for ($i=0; $i<self::N; $i++) {
+      if ($i%$period==0)
+        echo "Order $i\n";
       $order = new Order; 
       $order->name = self::phrase();
       $order->contractor_id = rand(1, self::N);
@@ -67,7 +72,7 @@ class TestCommand extends CConsoleCommand {
     $period = floor(self::N/10);
     for ($i=0; $i<self::N; $i++) {
       $c = self::B().self::a().self::a();
-      $contractor = Contractor::model()->find('name like "' . $c . '%"');
+      $contractor = Contractor::model()->find("name like '" . $c . "%'");
       if ($i % $period == 0)
         echo $c . ": " . ((isset($contractor))?$contractor->name:'') . "\n";
     }

@@ -15,5 +15,6 @@ return array(
 	// application components
 	'components'=>array(
 		'db' => require_once('db_mssql.php'),
+		//'db' => require_once('db_postgre.php'),
 	),
 );
